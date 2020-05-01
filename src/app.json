@@ -7,5 +7,8 @@
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "小洛家政",
     "navigationBarTextStyle": "black"
+  },
+  "usingComponents": {
+    "van-button": "vant-weapp/dist/button/index"
   }
 }

@@ -1,6 +1,7 @@
 <template>
   <div>
-    Hello World
+    <span class="hello">Hello World</span>
+    <van-button type="primary">按钮</van-button>
   </div>
 </template>
 
@@ -23,6 +24,8 @@ export default {
 }
 </script>
 
-<style scoped>
-
+<style lang="scss" scoped>
+.hello{
+  color: red;
+}
 </style>
