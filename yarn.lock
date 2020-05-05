@@ -7606,10 +7606,10 @@ validate-npm-package-license@^3.0.1:
     spdx-correct "^3.0.0"
     spdx-expression-parse "^3.0.0"
 
-vant-weapp@^0.5.28:
-  version "0.5.28"
-  resolved "https://registry.npm.taobao.org/vant-weapp/download/vant-weapp-0.5.28.tgz#426edb8aec5284a1a7beab1b5e9cb73e5144c41b"
-  integrity sha1-Qm7biuxShKGnvqsbXpy3PlFExBs=
+vant-weapp@^1.2.2:
+  version "1.0.0-beta.4"
+  resolved "https://registry.npm.taobao.org/vant-weapp/download/vant-weapp-1.0.0-beta.4.tgz#32914f5c7f5de1a7a70582c060abe4b1f9f804ba"
+  integrity sha1-MpFPXH9d4aenBYLAYKvksfn4BLo=
 
 vary@~1.1.2:
   version "1.1.2"
