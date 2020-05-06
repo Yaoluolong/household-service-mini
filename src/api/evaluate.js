@@ -10,3 +10,11 @@ export function create (id, openid, score, evaluate) {
   }
   return post(url, data)
 }
+
+export function list (commodityID) {
+  const url = '/evaluate/queryList'
+  const data = {
+    commodityID
+  }
+  return post(url, data)
+}

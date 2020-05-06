@@ -5,9 +5,9 @@ export function classList () {
   return get(url)
 }
 
-export function queryCommodity () {
-  const url = '/wechat/update'
-  return post(url)
+export function queryCommodity (id) {
+  const url = '/commodity/query'
+  return post(url, {id})
 }
 export function sortCommodity (className) {
   const url = '/commodity/sort'

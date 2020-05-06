@@ -4640,6 +4640,11 @@ mpvue-loader@^2.0.0:
     vue-style-loader "^3.0.0"
     vue-template-es2015-compiler "^1.5.3"
 
+mpvue-page-factory@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.npm.taobao.org/mpvue-page-factory/download/mpvue-page-factory-1.0.1.tgz#3276cfe128751be30a2ee246b7c457652115f7d0"
+  integrity sha1-MnbP4Sh1G+MKLuJGt8RXZSEV99A=
+
 mpvue-router-patch@^2.0.0:
   version "2.0.0"
   resolved "https://registry.npm.taobao.org/mpvue-router-patch/download/mpvue-router-patch-2.0.0.tgz#7cc87219133d7743a71ab73fadaf3d31f20cbbfb"
@@ -7606,7 +7611,7 @@ validate-npm-package-license@^3.0.1:
     spdx-correct "^3.0.0"
     spdx-expression-parse "^3.0.0"
 
-vant-weapp@^1.2.2:
+vant-weapp@^1.0.0-beta.4:
   version "1.0.0-beta.4"
   resolved "https://registry.npm.taobao.org/vant-weapp/download/vant-weapp-1.0.0-beta.4.tgz#32914f5c7f5de1a7a70582c060abe4b1f9f804ba"
   integrity sha1-MpFPXH9d4aenBYLAYKvksfn4BLo=

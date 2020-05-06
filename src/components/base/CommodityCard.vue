@@ -33,7 +33,7 @@ export default {
   },
   methods: {
     handleDetail (id) {
-      console.log(id)
+      mpvue.navigateTo({url: '../detail/main?id=' + id})
     }
   }
 }

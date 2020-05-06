@@ -1,9 +1,9 @@
 <template>
   <div class="banner">
     <swiper interval="2500" duration="500" autoplay indicator-dots>
-      <div v-for="(item,index) in items" :key="index">
+      <div v-for="(item,index) in list" :key="index">
         <swiper-item>
-          <van-image width="100%" height="100%" fit="fill" :src="item.poster" />
+          <van-image width="100%" height="100%" fit="fill" :src="item.url" @click="onClick(item.commodityID)"/>
         </swiper-item>
       </div>
     </swiper>
@@ -11,10 +11,15 @@
 </template>
 
 <script>
-import { list } from '../../api/promotion'
 
 export default {
   name: 'Banner',
+  props: {
+    list: {
+      type: Array,
+      default: []
+    }
+  },
   data () {
     return {
       items: [
@@ -40,14 +45,9 @@ export default {
     this.fetchData()
   },
   methods: {
-    fetchData () {
-      list()
-        .then(res => {
-          this.items = res.data
-        })
-        .catch(err => {
-          console.log(err)
-        })
+    onClick (id) {
+      console.log(id)
+      this.$emit('click', id)
     }
   }
 }
