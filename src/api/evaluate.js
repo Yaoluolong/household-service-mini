@@ -8,6 +8,5 @@ export function create (id, openid, score, evaluate) {
     score,
     evaluate
   }
-  console.log(data)
   return post(url, data)
 }
