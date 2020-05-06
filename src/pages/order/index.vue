@@ -299,6 +299,7 @@
 import { query, update } from '../../api/order'
 import Notify from 'vant-weapp/dist/notify/notify'
 import EvaluateDialog from '../../components/mine/EvaluateDialog'
+import { check } from '../../utils/check'
 
 export default {
   components: { EvaluateDialog },
@@ -322,7 +323,7 @@ export default {
       const openid = mpvue.getStorageSync('openid')
       query(openid)
         .then(res => {
-          this.orderList = res.data
+          this.orderList = check(res.data)
           this.orderList1 = []
           this.orderList2 = []
           this.orderList3 = []

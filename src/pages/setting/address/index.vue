@@ -42,7 +42,7 @@
 import areaList from '../../../utils/region'
 import Toast from 'vant-weapp/dist/toast/toast'
 import Notify from 'vant-weapp/dist/notify/notify'
-import { update, query } from '../../../api/customer'
+import { updateAddress, query } from '../../../api/customer'
 
 export default {
   data () {
@@ -80,7 +80,7 @@ export default {
       } else {
         const address = `${this.province} ${this.city} ${this.area} ${this.place}`
         const openid = mpvue.getStorageSync('openid')
-        update(openid, address).then(res => {
+        updateAddress(openid, address).then(res => {
           Notify({ type: 'success', message: '修改成功' })
           this.isEdit = false
         }).catch(err => {
@@ -110,10 +110,4 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.address {
-  .bottom {
-    position: fixed;
-    bottom: 0;
-  }
-}
 </style>

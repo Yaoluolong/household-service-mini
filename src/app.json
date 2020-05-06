@@ -61,6 +61,7 @@
     "van-rate": "vant-weapp/dist/rate/index",
     "van-popup": "vant-weapp/dist/popup/index",
     "van-area": "vant-weapp/dist/area/index",
-    "van-field": "vant-weapp/dist/field/index"
+    "van-field": "vant-weapp/dist/field/index",
+    "van-tree-select": "vant-weapp/dist/tree-select/index"
   }
 }
