@@ -412,9 +412,14 @@ export default {
 
 <style lang="scss" scoped>
 .page-order {
-  width: 100%;
+  background-color: #e5e5e5;
   height: 100%;
-  background: #e4e4e4;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  overflow: auto;
+  overscroll-behavior-y: contain;
   .page-order-none {
     color: white;
     text-align: center;

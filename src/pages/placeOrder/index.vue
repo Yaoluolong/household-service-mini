@@ -3,10 +3,10 @@
     <div class="order-header">
       <div v-if="!order.serviceAddress">请填写个人信息</div>
       <div v-else>
-        <div>{{order.serviceAddress}}</div>
+        <div class="address">{{order.serviceAddress}}</div>
         <div>
-          <span>{{order.name}}</span>
-          <span>{{order.contact}}</span>
+          <span class="name">{{order.name}}</span>
+          <span class="contact">{{order.contact}}</span>
         </div>
       </div>
     </div>
@@ -56,26 +56,33 @@
     <van-popup :show="calendarVisible" position="bottom" custom-style="height: 35%;">
       <van-datetime-picker
         type="date"
-        :value="serviceDate"
-        @input="onInput"
-        :min-date="Date.now()"
-        formatter="formatter"
+        :value="selectDate"
+        :min-date="minDate"
+        @confirm="selectDate"
+        @cancel="calendarVisible=false"
       />
     </van-popup>
+    <van-toast id="van-toast" />
     <van-notify id="van-notify" />
+    <van-dialog id="van-dialog" />
   </div>
 </template>
 
 <script>
-import { order } from '../../api/order'
+import { order, create } from '../../api/order'
+import moment from 'moment'
+import Toast from 'vant-weapp/dist/toast/toast'
+import Notify from 'vant-weapp/dist/notify/notify'
+import Dialog from 'vant-weapp/dist/dialog/dialog'
+
 export default {
   components: {},
   data () {
     return {
+      minDate: new Date().getTime(),
       commodityID: '',
       openid: '',
       order: {},
-      serviceDate: '',
       calendarVisible: false
     }
   },
@@ -99,9 +106,44 @@ export default {
     onSubmit () {
       const data = { ...this.order }
       console.log(data)
+      if (!this.order.serviceDate || this.order.name === '' || this.order.name === null || this.order.serviceAddress === '' || this.order.serviceAddress === null || this.order.contact === '' || this.order.contact === null) {
+        Toast.fail('请输入个人联系信息')
+      } else {
+        Dialog.confirm({
+          title: '等待支付',
+          message: '是否立即支付订单?',
+          asyncClose: true
+        })
+          .then(() => {
+            this.order.status = '待服务'
+            create(this.order).then(res => {
+              Notify({ type: 'success', message: '支付成功' })
+              setTimeout(() => {
+                mpvue.redirectTo({url: '../order/main?tab=2'})
+              }, 1000)
+            }).catch(err => [
+              console.log(err)
+            ])
+          })
+          .catch(() => {
+            this.order.status = '待支付'
+            create(this.order).then(res => {
+              Notify({ type: 'success', message: '下单成功' })
+              setTimeout(() => {
+                mpvue.redirectTo({url: '../order/main?tab=1'})
+              }, 1000)
+            }).catch(err => [
+              console.log(err)
+            ])
+            Dialog.close()
+          })
+      }
     },
-    onInput (e) {
-      console.log(e)
+    selectDate (e) {
+      const selectDate = e.mp.detail
+      this.order.serviceDate = moment(selectDate).format('YYYY-MM-DD')
+      this.calendarVisible = false
+      return selectDate
     }
   }
 }
@@ -122,6 +164,15 @@ export default {
     color: white;
     text-align: center;
     padding-bottom: 20px;
+    .address {
+      font-weight: 600;
+    }
+    .name {
+      padding: 3px;
+    }
+    .contact {
+      padding: 3px;
+    }
   }
   .order-info {
     margin: 10px 0;
