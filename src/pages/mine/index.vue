@@ -24,8 +24,13 @@ export default {
 
 <style lang="scss" scoped>
 .mine{
-  background: #e4e4e4;
+  background-color: #e5e5e5;
   height: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
   width: 100%;
+  overflow: auto;
+  overscroll-behavior-y: contain;
 }
 </style>

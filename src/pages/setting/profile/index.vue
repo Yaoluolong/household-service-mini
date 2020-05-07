@@ -71,6 +71,12 @@ export default {
         updateProfile(openid, this.name, this.contact).then(res => {
           Notify({ type: 'success', message: '修改成功' })
           this.isEdit = false
+          // eslint-disable-next-line no-undef
+          const pages = getCurrentPages()
+          const currentUrl = pages[pages.length - 2].route
+          if (currentUrl === 'pages/placeOrder/main') {
+            this.$router.back()
+          }
         }).catch(err => {
           console.log(err)
         })

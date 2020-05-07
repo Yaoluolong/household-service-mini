@@ -50,7 +50,7 @@
     <Baseline />
     <div class="bottom">
       <van-goods-action safe-area-inset-bottom>
-        <van-goods-action-button color="#42b983" text="立即下单" @click="onOrder" />
+        <van-goods-action-button block color="#42b983" text="立即下单" @click="onOrder" />
       </van-goods-action>
     </div>
   </div>
@@ -111,7 +111,10 @@ export default {
           console.log(err)
         })
     },
-    onOrder () {}
+    onOrder () {
+      const openid = mpvue.getStorageSync('openid')
+      mpvue.navigateTo({url: `../placeOrder/main?commodityID=${this.id}&openid=${openid}`})
+    }
   }
 }
 </script>

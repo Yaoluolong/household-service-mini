@@ -5,6 +5,11 @@ export function query (id) {
   return post(url, {id})
 }
 
+export function order (commodityID, openid) {
+  const url = '/order/order'
+  return post(url, { commodityID, openid })
+}
+
 export function update (id, status) {
   const url = '/order/update'
   const data = {

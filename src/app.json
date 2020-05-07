@@ -5,15 +5,16 @@
     "pages/sort/main",
     "pages/mine/main",
     "pages/order/main",
+    "pages/placeOrder/main",
     "pages/setting/address/main",
     "pages/setting/profile/main",
     "pages/detail/main"
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#fff",
+    "navigationBarBackgroundColor": "#42b983",
     "navigationBarTitleText": "小洛家政",
-    "navigationBarTextStyle": "black"
+    "navigationBarTextStyle": "white"
   },
   "tabBar":{
     "color": "#ADB4BE",
@@ -64,7 +65,9 @@
     "van-area": "vant-weapp/dist/area/index",
     "van-field": "vant-weapp/dist/field/index",
     "van-panel": "vant-weapp/dist/panel/index",
+    "van-datetime-picker": "vant-weapp/dist/datetime-picker/index",
     "van-tree-select": "vant-weapp/dist/tree-select/index",
+    "van-submit-bar": "vant-weapp/dist/submit-bar/index",
     "van-goods-action": "vant-weapp/dist/goods-action/index",
     "van-goods-action-button": "vant-weapp/dist/goods-action-button/index"
   }
