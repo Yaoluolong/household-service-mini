@@ -5,6 +5,11 @@ export function classList () {
   return get(url)
 }
 
+export function search (key) {
+  const url = '/commodity/search'
+  return post(url, { key })
+}
+
 export function queryCommodity (id) {
   const url = '/commodity/query'
   return post(url, {id})

@@ -42,6 +42,10 @@ export default {
     hotSearch: {
       type: String,
       default: ''
+    },
+    key: {
+      type: String,
+      default: ''
     }
   },
   data () {
@@ -49,7 +53,11 @@ export default {
       searchWord: ''
     }
   },
-  components: {},
+  watch: {
+    key: function () {
+      this.searchWord = this.key
+    }
+  },
   methods: {
     onClick (e) {
       this.$emit('on-click', e)
@@ -64,7 +72,7 @@ export default {
     },
     onConfirm (e) {
       const { value } = e.mp.detail
-      this.$emit('on-change', value)
+      this.$emit('on-confirm', value)
     },
     setWord (val) {
       this.searchWord = val
@@ -79,6 +87,7 @@ export default {
 <style lang="scss" scoped>
 .search-bar {
   padding: 15px 15.5px;
+  background: #42b983;
   .search-bar-wrapper {
     display: flex;
     height: 40px;

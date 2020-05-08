@@ -40,7 +40,7 @@ export default {
   },
   methods: {
     toSearch (e) {
-      console.log(e)
+      this.$router.push('../search/main')
     },
     isGetToken () {
       const token = getToken()
