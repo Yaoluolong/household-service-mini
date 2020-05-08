@@ -5,6 +5,8 @@
     "pages/sort/main",
     "pages/mine/main",
     "pages/order/main",
+    "pages/list/main",
+    "pages/search/main",
     "pages/placeOrder/main",
     "pages/setting/address/main",
     "pages/setting/profile/main",

@@ -27,26 +27,12 @@ export default {
           poromotionID: '123',
           commodityID: '123',
           poster: 'https://img.yzcdn.cn/vant/cat.jpeg'
-        },
-        {
-          poromotionID: '123',
-          commodityID: '123',
-          poster: 'https://img.yzcdn.cn/vant/cat.jpeg'
-        },
-        {
-          poromotionID: '123',
-          commodityID: '123',
-          poster: 'https://img.yzcdn.cn/vant/cat.jpeg'
         }
       ]
     }
   },
-  onShow () {
-    this.fetchData()
-  },
   methods: {
     onClick (id) {
-      console.log(id)
       this.$emit('click', id)
     }
   }

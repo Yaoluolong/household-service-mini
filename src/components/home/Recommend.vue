@@ -9,9 +9,9 @@
       <van-col
         class="recommend-item"
         span="8"
-        v-for="(item,index) in items"
+        v-for="(item,index) in list"
         :key="index"
-        @click="handleDetail(item)"
+        @click="handleDetail(item.commodityID)"
       >
         <div>
           <van-image lazy-load height="90" width="90" fit="fill" :src="item.show" />
@@ -33,29 +33,34 @@
 export default {
   name: 'Recommend',
   props: {
-    name: {
-      type: String,
-      default: 'name'
-    },
-    title: {
-      type: String,
-      default: '标题'
-    },
     items: {
       type: Array,
       default: []
+    },
+    title: {
+      type: String,
+      default: ''
     }
   },
   data () {
     return {}
   },
-  components: {},
+  computed: {
+    list: function () {
+      if (this.items.length > 3) {
+        return this.items.slice(0, 3)
+      } else {
+        return this.items
+      }
+    }
+  },
   methods: {
-    handleDetail (item) {
-      this.$emit('detail', item)
+    handleDetail (id) {
+      this.$emit('click', id)
     },
     handleMore (e) {
-      this.$emit('more', this.name)
+      this.$emit('more', this.title, this.items)
+      mpvue.navigateTo({url: `../list/main?key=${this.title}`})
     }
   }
 }
