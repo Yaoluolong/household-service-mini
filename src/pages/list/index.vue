@@ -4,7 +4,7 @@
     <div>
       <CommodityCard :items="items"/>
     </div>
-    <div class="none">
+    <div class="none" v-if="items.length===0">
       没有与搜索词相关的服务产品
     </div>
   </div>
@@ -68,6 +68,8 @@ export default {
   overscroll-behavior-y: contain;
   .none{
     color: white;
+    text-align: center;
+    margin-top:50%;
   }
 }
 </style>
