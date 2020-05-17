@@ -25,7 +25,7 @@ export default {
       mainActiveIndex: 0
     }
   },
-  onShow () {
+  mounted () {
     this.fetchData()
   },
   methods: {

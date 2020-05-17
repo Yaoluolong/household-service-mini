@@ -1,6 +1,6 @@
 <template>
   <div>
-    <SearchBar disabled @on-click="toSearch" />
+    <SearchBar disabled @on-click="toSearch" :key="''"/>
     <Banner :list="promotionItems" @click="handleDetail"/>
     <Recommend v-if="hotItems.length!==0" title="热门产品" :items="hotItems" @click="handleDetail"/>
     <Recommend v-if="recommendItems.length!==0" title="为你推荐" :items="recommendItems" @click="handleDetail"/>
@@ -52,6 +52,9 @@ export default {
       list().then(res => {
         this.promotionItems = check(res.data).filter(obj => {
           return obj.status === '已激活'
+        })
+        this.promotionItems.forEach(obj => {
+          obj.url = obj.poster
         })
       }).catch(err => {
         console.log(err)

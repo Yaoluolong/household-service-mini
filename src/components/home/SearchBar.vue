@@ -58,6 +58,9 @@ export default {
       this.searchWord = this.key
     }
   },
+  onShow () {
+    if (this.key === '') { this.onClear() }
+  },
   methods: {
     onClick (e) {
       this.$emit('on-click', e)
