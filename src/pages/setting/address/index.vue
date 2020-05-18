@@ -71,7 +71,7 @@ export default {
         this.area = arr[2]
         this.place = arr[3]
       }).catch(err => {
-        Toast.fail(err)
+        console.log(err)
       })
     },
     handleEdit () {

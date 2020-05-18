@@ -62,7 +62,6 @@ export default {
         })
     },
     onClickNav (e) {
-      console.log(e)
       const { index } = e.mp.detail
       const className = this.items[index].text
       this.fetchList(className)

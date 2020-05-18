@@ -14,6 +14,7 @@
 import { index } from '../../api/search'
 import { search } from '../../api/commodity'
 import { check } from '../../utils/check'
+import { sort } from '../../utils/sort'
 import SearchBar from '../../components/home/SearchBar'
 import CommodityCard from '../../components/base/CommodityCard'
 
@@ -46,7 +47,7 @@ export default {
         })
       } else {
         search(this.key).then(res => {
-          this.items = check(res.data)
+          this.items = sort(this.key, res.data)
         }).catch(err => {
           console.log(err)
         })

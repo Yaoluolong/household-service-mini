@@ -6,7 +6,7 @@
         :price="item.price"
         :origin-price="item.promotionPrice"
         :tag="item.promotionPrice===''||item.promotionPrice===null?'':'促销中'"
-        :desc="item.describe"
+        :desc="item.className"
         :title="item.name"
         :thumb="item.show"
         thumb-mode="fit"
@@ -30,6 +30,17 @@ export default {
   },
   data () {
     return {}
+  },
+  computed: {
+    list () {
+      const arr = this.items
+      if (arr.length !== 0) {
+        arr.forEach(obj => {
+          obj.show = obj.show.split(',')[0]
+        })
+      }
+      return arr
+    }
   },
   methods: {
     handleDetail (id) {

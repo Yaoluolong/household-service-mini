@@ -47,10 +47,15 @@ export default {
   },
   computed: {
     list: function () {
-      if (this.items.length > 3) {
-        return this.items.slice(0, 3)
+      const arr = this.items
+      arr.forEach(obj => {
+        const show = obj.show.split(',')[0]
+        obj.show = show
+      })
+      if (arr.length > 3) {
+        return arr.slice(0, 3)
       } else {
-        return this.items
+        return arr
       }
     }
   },

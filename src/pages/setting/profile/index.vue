@@ -64,7 +64,7 @@ export default {
       })
     },
     handleEdit () {
-      if (this.name === '' || this.contact === '') {
+      if (this.name === '' || this.contact === '' || this.name === null || this.contact === null) {
         Toast.fail('信息不能为空')
       } else {
         const openid = mpvue.getStorageSync('openid')
