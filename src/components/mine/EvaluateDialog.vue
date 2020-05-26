@@ -48,6 +48,8 @@ export default {
         create(this.id, openid, this.form.score, this.form.evaluate).then(res => {
           this.show = false
           this.$emit('success', this.id)
+          this.score = ''
+          this.evaluate = ''
         }).catch(err => {
           console.log(err)
         })

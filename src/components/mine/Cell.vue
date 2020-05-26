@@ -6,12 +6,6 @@
       <van-cell title="服务地址" url="../setting/address/main" is-link icon="map-marked"/>
     </van-group>
     </div>
-    <div class="cell-group">
-      <van-group>
-      <van-cell title="帮助" is-link icon="question"/>
-      <van-cell title="商家信息" is-link icon="shop"/>
-    </van-group>
-    </div>
   </div>
 </template>
 
